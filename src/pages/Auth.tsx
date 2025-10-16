@@ -88,7 +88,7 @@ const Auth = () => {
                 EasyDizzy
               </span>
             </div>
-            <p className="text-muted-foreground">Your lovable learning journey starts here</p>
+            <p className="text-muted-foreground">Your amazing learning journey starts here</p>
           </div>
 
           {/* Auth Card */}

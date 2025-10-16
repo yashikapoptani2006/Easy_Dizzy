@@ -1,33 +1,33 @@
-# Welcome to your Lovable project
+# EasyDizzy - Premium E-Learning Platform
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/83c27d8f-e130-4cd3-a435-c51fd70fd64e
+EasyDizzy is a modern, interactive e-learning platform built with React, TypeScript, and Tailwind CSS. It provides a comprehensive learning experience with course management, user authentication, and direct integration with educational content.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- 🎨 **Modern Dark Theme** with purple accents
+- 🔐 **Complete Authentication System** with user profiles
+- 📚 **6 Functional Courses** with YouTube integration
+- 📱 **Fully Responsive Design** for all devices
+- ⚡ **Smooth Animations** and professional UI/UX
+- 🛡️ **Protected Routes** and proper error handling
+- 📊 **User Dashboard** with personalized experience
+- 🎯 **About Page** with company information
 
-**Use Lovable**
+## How to Run Locally
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/83c27d8f-e130-4cd3-a435-c51fd70fd64e) and start prompting.
+**Prerequisites**
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+**Installation Steps:**
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 1: Clone the repository
+git clone https://github.com/kaajukaatil/Easy_Dizzy.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd Easy_Dizzy
 
 # Step 3: Install the necessary dependencies.
 npm i
@@ -36,38 +36,51 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Technologies Used
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is built with modern web technologies:
 
-**Use GitHub Codespaces**
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI library with hooks and components
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Modern UI component library
+- **React Router** - Client-side routing
+- **Sonner** - Toast notifications
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Course Integration
 
-## What technologies are used for this project?
+All courses are integrated with YouTube content:
 
-This project is built with:
+1. **Complete Web Development Bootcamp** → YouTube Playlist
+2. **Data Science & Machine Learning** → YouTube Live Stream
+3. **Advanced UI/UX Design Masterclass** → YouTube Playlist
+4. **Mobile App Development with React Native** → YouTube Playlist
+5. **Digital Marketing Fundamentals** → YouTube Playlist
+6. **Cloud Computing with AWS** → YouTube Playlist
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project Structure
 
-## How can I deploy this project?
+```bash
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page components (Home, About, Auth, Dashboard)
+├── lib/                # Utility functions
+└── index.css           # Global styles and theme
 
-Simply open [Lovable](https://lovable.dev/projects/83c27d8f-e130-4cd3-a435-c51fd70fd64e) and click on Share -> Publish.
+public/
+├── favicon.svg         # EasyDizzy logo
+└── index.html          # HTML template
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Contributing
 
-Yes, you can!
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open source and available under the MIT License.
