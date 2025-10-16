@@ -1,4 +1,5 @@
-# EasyDizzy - Premium E-Learning Platform
+# EasyDizzy - Free E-Learning Platform
+LINK TO MY PROJECT: https://easy-dizzy.vercel.app/
 
 ## Project Overview
 
