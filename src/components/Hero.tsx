@@ -1,8 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Trophy } from "lucide-react";
-import heroImage from "@/assets/hero-learning.jpg";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
+  const handleGetStarted = () => {
+    const isAuthenticated = localStorage.getItem("easydizzy_auth") === "true";
+    if (isAuthenticated) {
+      navigate("/dashboard");
+      toast.success("Welcome to your dashboard!");
+    } else {
+      navigate("/auth");
+      toast.info("Sign up to get started with your learning journey!");
+    }
+  };
+  
+  const handleBrowseCourses = () => {
+    // Scroll to courses section
+    const coursesSection = document.querySelector('#courses-section');
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: 'smooth' });
+      toast.success("Check out our amazing courses below!");
+    }
+  };
   return (
     <section className="relative overflow-hidden">
       {/* Video Background */}
@@ -30,8 +52,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl lg:text-6xl xl:text-7xl leading-tight">
-              Learn, Explore,
-              <span className="gradient-primary bg-clip-text text-transparent"> Grow!</span>
+              Learn, Explore, Grow!
             </h1>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
@@ -39,10 +60,19 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="gradient-primary border-0 hover:scale-105 transition-smooth">
+              <Button 
+                size="lg" 
+                className="gradient-primary border-0 hover:scale-105 transition-smooth"
+                onClick={handleGetStarted}
+              >
                 Get Started Free
               </Button>
-              <Button size="lg" variant="outline" className="hover:scale-105 transition-smooth">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="hover:scale-105 transition-smooth"
+                onClick={handleBrowseCourses}
+              >
                 Browse Courses
               </Button>
             </div>
@@ -77,7 +107,7 @@ const Hero = () => {
           <div className="relative lg:h-[600px] transition-smooth">
             <div className="absolute inset-0 gradient-primary opacity-20 rounded-3xl blur-3xl"></div>
             <img
-              src={heroImage}
+              src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop"
               alt="Students learning together in a modern educational environment"
               className="relative rounded-3xl shadow-custom-lg w-full h-full object-cover transition-smooth hover:scale-105"
             />

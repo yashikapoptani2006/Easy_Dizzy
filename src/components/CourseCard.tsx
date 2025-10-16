@@ -2,6 +2,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Star, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface CourseCardProps {
   title: string;
@@ -24,7 +26,9 @@ const CourseCard = ({
   rating,
   category,
   level,
+  image,
 }: CourseCardProps) => {
+  const navigate = useNavigate();
   const getLevelColor = (level: string) => {
     switch (level) {
       case "Beginner":
@@ -38,14 +42,73 @@ const CourseCard = ({
     }
   };
 
+  const handleEnroll = () => {
+    const isAuthed = localStorage.getItem("easydizzy_auth") === "true";
+    if (!isAuthed) {
+      toast.info("Please sign in to enroll");
+      navigate("/auth");
+      return;
+    }
+    
+    // Special handling for specific courses
+    if (title === "Complete Web Development Bootcamp") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://youtube.com/playlist?list=PLVht7UBOfJb8p7ehKW_yDfCrzAJVRHrE7&si=hFc3W5uyHD5hTDZr", "_blank");
+      return;
+    }
+    
+    if (title === "Data Science & Machine Learning") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://www.youtube.com/live/hhGPiDrUe1c?si=p3m89Y6VEmTfGSVt", "_blank");
+      return;
+    }
+    
+    if (title === "Advanced UI/UX Design Masterclass") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://youtube.com/playlist?list=PLdvOfoe7PXT0ouChAnR1nHlT8BJIo5hP_&si=F1c0CnYUJ7Fr_Q98", "_blank");
+      return;
+    }
+    
+    if (title === "Mobile App Development with React Native") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1&si=CzMV1hcjB0ZWiQEM", "_blank");
+      return;
+    }
+    
+    if (title === "Digital Marketing Fundamentals") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://youtube.com/playlist?list=PLLSovFY-eK2_1isRMtrNS_me4zDrs2CuS&si=md4B6LQBuvexPQDF", "_blank");
+      return;
+    }
+    
+    if (title === "Cloud Computing with AWS") {
+      toast.success("Redirecting to course content! 🎉");
+      window.open("https://youtube.com/playlist?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&si=db8jCYqlvL-TYZtU", "_blank");
+      return;
+    }
+    
+    toast.success("Enrollment started! 🎉");
+  };
+
   return (
     <Card className="group hover:shadow-custom-md transition-smooth overflow-hidden border-2 hover:border-primary/50">
-      {/* Course Image/Gradient */}
-      <div className="h-48 gradient-card relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 group-hover:from-primary/30 group-hover:to-primary/10 transition-smooth"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <BookOpen className="w-16 h-16 text-primary/40 group-hover:scale-110 transition-smooth" />
-        </div>
+      {/* Course Image / Fallback */}
+      <div className="h-48 relative overflow-hidden bg-gray-100">
+        {image ? (
+          <img
+            src={image}
+            alt={`${title} thumbnail`}
+            className="w-full h-full object-cover transition-smooth group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="h-full gradient-card relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 group-hover:from-primary/30 group-hover:to-primary/10 transition-smooth" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <BookOpen className="w-16 h-16 text-primary/40 group-hover:scale-110 transition-smooth" />
+            </div>
+          </div>
+        )}
         <div className="absolute top-4 right-4">
           <Badge className={getLevelColor(level)}>{level}</Badge>
         </div>
@@ -89,7 +152,7 @@ const CourseCard = ({
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full gradient-primary border-0 group-hover:scale-105 transition-smooth">
+        <Button onClick={handleEnroll} className="w-full gradient-primary border-0 group-hover:scale-105 transition-smooth">
           Enroll Now
         </Button>
       </CardFooter>

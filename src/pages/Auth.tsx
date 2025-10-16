@@ -8,16 +8,17 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Auth = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!email || !password) {
+    if (!email || !password || (!isLogin && !name)) {
       toast.error("Please fill in all fields");
       return;
     }
@@ -33,9 +34,9 @@ const Auth = () => {
       if (storedUser) {
         const user = JSON.parse(storedUser);
         if (user.email === email && user.password === password) {
-          toast.success("Welcome back! 🎉");
+          toast.success(`Welcome back, ${user.name}! 🎉`);
           localStorage.setItem("easydizzy_auth", "true");
-          setTimeout(() => navigate("/"), 500);
+          setTimeout(() => navigate("/dashboard"), 500);
         } else {
           toast.error("Invalid credentials");
         }
@@ -44,10 +45,10 @@ const Auth = () => {
       }
     } else {
       // Sign up
-      localStorage.setItem("easydizzy_user", JSON.stringify({ email, password }));
+      localStorage.setItem("easydizzy_user", JSON.stringify({ name, email, password }));
       localStorage.setItem("easydizzy_auth", "true");
-      toast.success("Account created! Welcome to EasyDizzy! 🎓");
-      setTimeout(() => navigate("/"), 500);
+      toast.success(`Account created! Welcome to EasyDizzy, ${name}! 🎓`);
+      setTimeout(() => navigate("/dashboard"), 500);
     }
   };
 
@@ -84,7 +85,7 @@ const Auth = () => {
                 <GraduationCap className="w-7 h-7 text-white" />
               </div>
               <span className="text-3xl font-bold">
-                Easy<span className="gradient-primary bg-clip-text text-transparent">Dizzy</span>
+                EasyDizzy
               </span>
             </div>
             <p className="text-muted-foreground">Your lovable learning journey starts here</p>
@@ -104,6 +105,20 @@ const Auth = () => {
             </CardHeader>
             <form onSubmit={handleSubmit}>
               <CardContent className="space-y-4">
+                {!isLogin && (
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="John Doe"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="transition-smooth hover:border-primary/50"
+                      required
+                    />
+                  </div>
+                )}
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input

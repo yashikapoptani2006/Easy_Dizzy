@@ -39,7 +39,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Why Choose <span className="gradient-primary bg-clip-text text-transparent">EasyDizzy?</span>
+            Why Choose EasyDizzy?
           </h2>
           <p className="text-lg text-muted-foreground">
             Everything you need to succeed in your learning journey, all in one platform.
