@@ -4,8 +4,22 @@ import heroImage from "@/assets/hero-learning.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden gradient-hero">
-      <div className="container mx-auto px-4 py-20 lg:py-28">
+    <section className="relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-students-studying-together-in-a-library-4965-large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/95"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-20 lg:py-28 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
@@ -25,10 +39,10 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="gradient-primary border-0">
+              <Button size="lg" className="gradient-primary border-0 hover:scale-105 transition-smooth">
                 Get Started Free
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="hover:scale-105 transition-smooth">
                 Browse Courses
               </Button>
             </div>

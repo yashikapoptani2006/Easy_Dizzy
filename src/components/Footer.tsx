@@ -12,7 +12,7 @@ const Footer = () => {
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <span className="text-xl font-bold">
-                E-Learn <span className="gradient-primary bg-clip-text text-transparent">Hub</span>
+                Easy<span className="gradient-primary bg-clip-text text-transparent">Dizzy</span>
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -133,7 +133,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} E-Learn Hub. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} EasyDizzy. All rights reserved.</p>
         </div>
       </div>
     </footer>

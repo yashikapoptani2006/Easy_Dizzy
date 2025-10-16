@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b shadow-custom-sm">
@@ -15,7 +17,7 @@ const Navbar = () => {
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold">
-              E-Learn <span className="gradient-primary bg-clip-text text-transparent">Hub</span>
+              Easy<span className="gradient-primary bg-clip-text text-transparent">Dizzy</span>
             </span>
           </div>
 
@@ -37,8 +39,8 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost">Sign In</Button>
-            <Button className="gradient-primary border-0">Get Started</Button>
+            <Button variant="ghost" onClick={() => navigate("/auth")}>Sign In</Button>
+            <Button className="gradient-primary border-0 hover:scale-105 transition-smooth" onClick={() => navigate("/auth")}>Get Started</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,10 +69,10 @@ const Navbar = () => {
               Contact
             </a>
             <div className="flex flex-col gap-2 pt-4 border-t">
-              <Button variant="ghost" className="w-full">
+              <Button variant="ghost" className="w-full" onClick={() => navigate("/auth")}>
                 Sign In
               </Button>
-              <Button className="w-full gradient-primary border-0">Get Started</Button>
+              <Button className="w-full gradient-primary border-0" onClick={() => navigate("/auth")}>Get Started</Button>
             </div>
           </div>
         )}
